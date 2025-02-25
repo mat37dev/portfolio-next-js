@@ -8,7 +8,7 @@ const Navbar = () => {
                     href={"/"}
                     className="text-2xl md:text-3xl text-white font-normal"
                 >
-                    WebBlog
+                    Portfolio
                 </Link>
                 <div
                     className="menu hidden md:block md:w-auto"
@@ -20,7 +20,7 @@ const Navbar = () => {
                                 href="/about"
                                 className="hover:text-slate-200"
                             >
-                                About
+                                A propos
                             </Link>
                         </li>
                         <li key="projects">
@@ -28,7 +28,7 @@ const Navbar = () => {
                                 href="#projects"
                                 className="hover:text-slate-200"
                             >
-                                Projects
+                                Projets
                             </Link>
                         </li>
                     </ul>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {Github, Linkedin} from "lucide-react";
 
 const Navbar = () => {
     return (
@@ -17,7 +18,7 @@ const Navbar = () => {
                     <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
                         <li key="about">
                             <Link
-                                href="/about"
+                                href="#about"
                                 className="hover:text-slate-200"
                             >
                                 A propos
@@ -29,6 +30,24 @@ const Navbar = () => {
                                 className="hover:text-slate-200"
                             >
                                 Projets
+                            </Link>
+                        </li>
+                        <li key="github">
+                            <Link
+                                href="https://github.com/mat37dev"
+                                className="hover:text-slate-200"
+                                target="_blank"
+                            >
+                                <Github />
+                            </Link>
+                        </li>
+                        <li key="linkedin">
+                            <Link
+                                href="https://www.linkedin.com/in/mathieu-crosnier-b78a16238/"
+                                className="hover:text-slate-200"
+                                target="_blank"
+                            >
+                                <Linkedin />
                             </Link>
                         </li>
                     </ul>

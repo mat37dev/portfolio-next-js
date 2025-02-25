@@ -16,6 +16,7 @@ const HeroSection = () => {
 
     return (
         <div
+            id="about"
             className="relative"
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovering(true)}

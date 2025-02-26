@@ -138,7 +138,7 @@ const ContactSection = () => {
                         </span>
                         {emailCopied && (
                             <div className="absolute top-full left-0 mt-1 px-2 py-1 bg-gray-700 text-white text-xs rounded">
-                                Copied!
+                                Copié!
                             </div>
                         )}
                     </div>
@@ -154,7 +154,7 @@ const ContactSection = () => {
                         </span>
                         {addressCopied && (
                             <div className="absolute top-full left-0 mt-1 px-2 py-1 bg-gray-700 text-white text-xs rounded">
-                                Copied!
+                                Copié!
                             </div>
                         )}
                     </div>

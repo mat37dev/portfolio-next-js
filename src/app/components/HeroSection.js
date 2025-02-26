@@ -1,6 +1,6 @@
 "use client";
 import {useState} from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const HeroSection = () => {
     const [mousePosition, setMousePosition] = useState({x: 50, y: 50});
@@ -77,8 +77,8 @@ const HeroSection = () => {
                     <Image
                         src="/avatar.png"
                         alt="Photo de profil de Mathieu Crosnier"
-                        width={500}
-                        height={500}
+                        width={300}
+                        height={300}
                         className="w-64 h-64 rounded-full object-cover"
                     />
                 </div>

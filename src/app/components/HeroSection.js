@@ -61,11 +61,11 @@ const HeroSection = () => {
                     <div className="mt-6 flex items-center space-x-6">
                         <span
                             className="text-gray-300 text-xl border-b-2 border-gray-300 hover:border-primary-600 transition-colors duration-300 cursor-pointer">
-                            mathieu.crosnier15@outlook.fr
+                            Email: mathieu.crosnier15@outlook.fr
                         </span>
                         <span
                             className="text-gray-300 text-lg border-b-2 border-gray-300 hover:border-primary-600 transition-colors duration-300 cursor-pointer">
-                            25 ans
+                            Age: 25 ans
                         </span>
                         <span
                             className="text-gray-300 text-lg border-b-2 border-gray-300 hover:border-primary-600 transition-colors duration-300 cursor-pointer">

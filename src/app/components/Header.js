@@ -19,6 +19,7 @@ const Navbar = () => {
                         <li key="about">
                             <Link
                                 href="#about"
+                                aria-label="A propos de moi"
                                 className="hover:text-slate-200"
                             >
                                 A propos
@@ -28,6 +29,7 @@ const Navbar = () => {
                             <Link
                                 href="#projects"
                                 className="hover:text-slate-200"
+                                aria-label="Section Projets"
                             >
                                 Projets
                             </Link>
@@ -36,6 +38,7 @@ const Navbar = () => {
                             <Link
                                 href="https://github.com/mat37dev"
                                 className="hover:text-slate-200"
+                                aria-label="Mon Github"
                                 target="_blank"
                             >
                                 <Github />
@@ -46,6 +49,7 @@ const Navbar = () => {
                                 href="https://www.linkedin.com/in/mathieu-crosnier-b78a16238/"
                                 className="hover:text-slate-200"
                                 target="_blank"
+                                aria-label="Mon Linkedin"
                             >
                                 <Linkedin />
                             </Link>

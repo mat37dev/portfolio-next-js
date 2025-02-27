@@ -45,7 +45,7 @@ const HeroSection = () => {
                 <div
                     className="absolute top-8 right-8 sm:w-[300px] sm:h-[300px] w-[100px] h-[100px] bg-primary-400/70 rounded-full blur-xl"></div>
             </div>
-            <div className="relative z-10 mt-6 flex flex-col sm:flex-row items-center gap-6">
+            <div className="relative z-10 mt-6 flex flex-col md:flex-row items-center gap-6">
                 <div className="flex-1">
                     <h1 className="text-4xl font-bold tracking-light">
                         Bonjour! Je suis Mathieu
@@ -73,13 +73,14 @@ const HeroSection = () => {
                         </span>
                     </div>
                 </div>
-                <div>
+                <div className="relative w-32 h-32 lg:w-64 lg:h-64">
                     <Image
                         src="/avatar.png"
                         alt="Photo de profil de Mathieu Crosnier"
-                        width={300}
-                        height={300}
-                        className="w-64 h-64 rounded-full object-cover"
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-full"
+                        priority
                     />
                 </div>
             </div>

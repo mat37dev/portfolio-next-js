@@ -73,14 +73,14 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                         <div>
                             <h3 className="font-semibold mb-2 text-primary">Pile technologique:</h3>
                             <ul className="list-disc list-inside">
-                                {project.teckStack.map((tech, index) => (
+                                {project.techStack.map((tech, index) => (
                                     <li className="text-gray-300" key={index}>{tech}</li>
                                 ))}
                             </ul>
                         </div>
                     </div>
                     <div className="relative h-64 w-full md:w-1/2 md:h-auto">
-                        <Image src={project.image} alt={project.title} layout="fill" objectFit="contain"/>
+                        <Image src={project.image} alt={project.title} layout="fill" objectFit="contain" loading="lazy"/>
                     </div>
                     <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-11/12 max-w-4xl">
                         <button onClick={onPrevious} className="bg-gray-800/50 rounded-full p-2 hover:bg-gray-800/70

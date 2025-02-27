@@ -1,6 +1,7 @@
-import Image from "next/image";
-import {X, ChevronLeft, ChevronRight} from "lucide-react";
+import Image from "next/legacy/image";
+import {X, ChevronLeft, ChevronRight, Github, Download} from "lucide-react";
 import {useRef} from "react";
+import Link from "next/link";
 
 export default function ProjectModal({project, onClose, onNext, onPrevious}) {
     const modalRef = useRef(null);
@@ -23,6 +24,41 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                     <h2 className="text-2xl font-bold text-primary-50">
                         {project.title}
                     </h2>
+                    <div className="flex items-center space-x-4">
+                        {project.download && (
+
+                            <div className="relative group">
+                                <Link
+                                    href={project.download}
+                                    className="hover:text-slate-300"
+                                    target="_blank"
+                                >
+                                    <Download/>
+                                </Link>
+                                <div
+                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    Télécharger
+                                </div>
+                            </div>
+                        )}
+                        {project.github && (
+                            <div className="relative group">
+                                <Link
+                                    href={project.github}
+                                    className="hover:text-slate-300"
+                                    target="_blank"
+                                >
+                                    <Github/>
+                                </Link>
+                                <div
+                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    GitHub Code
+                                </div>
+                            </div>
+                        )}
+
+
+                    </div>
                     <button onClick={onClose} className="text-primary-50 hover:text-primary-400 rounded-full p-2
                     bg-gray-800/50  hover:bg-gray-800/70 transition-colors">
                         <X size={24}/>
@@ -42,7 +78,7 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                         </div>
                     </div>
                     <div className="relative h-64 w-full md:w-1/2 md:h-auto">
-                        <Image src={project.image} alt={project.title} layout="fill" objectFit="cover"/>
+                        <Image src={project.image} alt={project.title} layout="fill" objectFit="contain"/>
                     </div>
                     <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-11/12 max-w-4xl">
                         <button onClick={onPrevious} className="bg-gray-800/50 rounded-full p-2 hover:bg-gray-800/70

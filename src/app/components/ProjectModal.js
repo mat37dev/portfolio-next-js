@@ -32,6 +32,7 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                                     href={project.download}
                                     className="hover:text-slate-300"
                                     target="_blank"
+                                    aria-label="Télécharger le projet"
                                 >
                                     <Download/>
                                 </Link>
@@ -47,6 +48,7 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                                     href={project.github}
                                     className="hover:text-slate-300"
                                     target="_blank"
+                                    aria-label="Github du projet"
                                 >
                                     <Github/>
                                 </Link>

@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import {CalendarDays} from "lucide-react";
 const TimelineSection = () => {
     return (
@@ -112,7 +111,7 @@ const TimelineSection = () => {
                                     </p>
                                 </div>
                             </div>
-                            {/* Timeline Item Expérience: Kamisys */}
+                            {/* Timeline Item Expérience : Kamisys */}
                             <div className="relative flex items-start space-x-4">
                                 <div className="absolute left-6 ml-1.5 top-1 w-[5px] h-full bg-primary-600"></div>
                                 <div className="flex-shrink-0 relative z-10">

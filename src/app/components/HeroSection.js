@@ -1,6 +1,7 @@
 "use client";
 import {useState} from "react";
 import Image from "next/legacy/image";
+import {redirect} from "next/navigation";
 
 const HeroSection = () => {
     const [mousePosition, setMousePosition] = useState({x: 50, y: 50});
@@ -86,7 +87,9 @@ const HeroSection = () => {
             </div>
             <div className="flex mt-10 gap-4 relative z-10">
                 <button
-                    className="px-8 py-3 rounded-lg border border-gray-600 hover:border-primary-500 font-medium bg-slate-900">
+                    className="px-8 py-3 rounded-lg border border-gray-600 hover:border-primary-500 font-medium bg-slate-900"
+                    onClick={() => {redirect("#contact")}}
+                >
                     Contactez Moi!
                 </button>
             </div>

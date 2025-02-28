@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/legacy/image";
-import React, {useState} from "react";
 import ProjectModal from "@/app/components/ProjectModal";
 import {CalendarDays} from "lucide-react";
+import {useState} from "react";
 
 const ProjectSection = () => {
     const projects = [

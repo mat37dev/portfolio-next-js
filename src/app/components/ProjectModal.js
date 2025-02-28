@@ -1,10 +1,17 @@
 import Image from "next/legacy/image";
 import {X, ChevronLeft, ChevronRight, Github, Download} from "lucide-react";
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 import Link from "next/link";
 
 export default function ProjectModal({project, onClose, onNext, onPrevious}) {
     const modalRef = useRef(null);
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, []);
 
     const handleOutsideClick = (e) => {
         if (modalRef.current === e.target) {
@@ -37,7 +44,8 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                                     <Download/>
                                 </Link>
                                 <div
-                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1
+                                    bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                     Télécharger
                                 </div>
                             </div>
@@ -53,7 +61,8 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                                     <Github/>
                                 </Link>
                                 <div
-                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1
+                                    bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                     GitHub Code
                                 </div>
                             </div>
@@ -73,14 +82,14 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                         <div>
                             <h3 className="font-semibold mb-2 text-primary">Pile technologique:</h3>
                             <ul className="list-disc list-inside">
-                                {project.teckStack.map((tech, index) => (
+                                {project.techStack.map((tech, index) => (
                                     <li className="text-gray-300" key={index}>{tech}</li>
                                 ))}
                             </ul>
                         </div>
                     </div>
                     <div className="relative h-64 w-full md:w-1/2 md:h-auto">
-                        <Image src={project.image} alt={project.title} layout="fill" objectFit="contain"/>
+                        <Image src={project.image} alt={project.title} layout="fill" objectFit="contain" loading="lazy"/>
                     </div>
                     <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-11/12 max-w-4xl">
                         <button onClick={onPrevious} className="bg-gray-800/50 rounded-full p-2 hover:bg-gray-800/70

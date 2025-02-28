@@ -34,6 +34,15 @@ const Navbar = () => {
                                 Projets
                             </Link>
                         </li>
+                        <li key="skill">
+                            <Link
+                                href="#skill"
+                                className="hover:text-slate-200"
+                                aria-label="Section Compétences"
+                            >
+                                Mes Compétences
+                            </Link>
+                        </li>
                         <li key="github">
                             <Link
                                 href="https://github.com/mat37dev"

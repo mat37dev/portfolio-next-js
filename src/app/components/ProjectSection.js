@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/legacy/image";
-import React, {useState} from "react";
 import ProjectModal from "@/app/components/ProjectModal";
 import {CalendarDays} from "lucide-react";
+import {useState} from "react";
 
 const ProjectSection = () => {
     const projects = [
@@ -153,7 +153,7 @@ const ProjectSection = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="absolute top-5 right-3 h-2/3 w-1/3 sm:hidden xl:block">
+                        <div className="absolute top-5 right-3 h-2/3 w-1/3 hidden xl:block">
                             <Image src={project.image} alt={project.title} layout="fill" objectFit="contain" priority/>
                         </div>
                     </button>

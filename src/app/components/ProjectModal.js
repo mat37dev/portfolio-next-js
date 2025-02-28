@@ -1,10 +1,17 @@
 import Image from "next/legacy/image";
 import {X, ChevronLeft, ChevronRight, Github, Download} from "lucide-react";
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 import Link from "next/link";
 
 export default function ProjectModal({project, onClose, onNext, onPrevious}) {
     const modalRef = useRef(null);
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, []);
 
     const handleOutsideClick = (e) => {
         if (modalRef.current === e.target) {
@@ -37,7 +44,8 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                                     <Download/>
                                 </Link>
                                 <div
-                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1
+                                    bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                     Télécharger
                                 </div>
                             </div>
@@ -53,7 +61,8 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                                     <Github/>
                                 </Link>
                                 <div
-                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1
+                                    bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                     GitHub Code
                                 </div>
                             </div>

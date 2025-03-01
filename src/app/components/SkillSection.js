@@ -27,7 +27,7 @@ export default function SkillSection() {
     return (
         <section id="skill" className="p-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-white mb-12 text-center">
-                Compétences Découvertes
+                Compétences Maîtrisées et Explorées
             </h2>
             {/* Container centré avec une largeur réduite sur lg et un gap réduit entre les cartes */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 mx-auto">

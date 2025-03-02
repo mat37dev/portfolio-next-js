@@ -19,9 +19,24 @@ const geistMono = Geist_Mono({
 
 
 export const metadata = {
-  title: "Portfolio| Crosnier Mathieu",
-  description: "Portfolio de Mathieu Crosnier, étudiant et développeur passionné. Découvrez mes projets innovants et mes " +
-      "compétences en conception et développement d'applications web modernes.",
+    title: "Portfolio | Crosnier Mathieu",
+    description: "Portfolio de Mathieu Crosnier, étudiant et développeur passionné. Découvrez mes projets innovants et mes compétences en développement web moderne.",
+    keywords: "Mathieu Crosnier, développeur web, Next.js, React, programmation, portfolio, projets web",
+    author: "Mathieu Crosnier",
+    openGraph: {
+        title: "Portfolio | Crosnier Mathieu",
+        description: "Découvrez mes projets et mes compétences en développement web moderne.",
+        url: "https://mathieucrosnier.fr",
+        type: "website",
+        images: [
+            {
+                url: "https://mathieucrosnier.fr/avatar.png",
+                width: 1200,
+                height: 630,
+                alt: "Portfolio de Mathieu Crosnier"
+            }
+        ],
+    },
 };
 
 export default function RootLayout({ children }) {

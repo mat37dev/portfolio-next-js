@@ -17,6 +17,18 @@ const geistMono = Geist_Mono({
     weight: ["400"],
 });
 
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mathieu Crosnier",
+    "url": "https://mathieucrosnier.fr",
+    "logo": "https://mathieucrosnier.fr/favicon.png",
+    "sameAs": [
+        "https://github.com/mat37dev",
+        "https://www.linkedin.com/in/mathieu-crosnier-b78a16238/"
+    ]
+};
+
 
 export const metadata = {
     title: "Portfolio | Crosnier Mathieu",
@@ -44,9 +56,16 @@ export const metadata = {
     },
 };
 
+
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
+    <head>
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+    </head>
     <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-white-100 text-slate-50 font-normal leading-relaxed`}
     >

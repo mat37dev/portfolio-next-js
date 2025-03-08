@@ -7,7 +7,7 @@ const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
     display: "swap",
-    weight: ["400", "600"], // Ajoute uniquement les poids nécessaires
+    weight: ["400", "600"],
 });
 
 const geistMono = Geist_Mono({
@@ -16,18 +16,6 @@ const geistMono = Geist_Mono({
     display: "swap",
     weight: ["400"],
 });
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Mathieu Crosnier",
-    "url": "https://mathieucrosnier.fr",
-    "logo": "https://mathieucrosnier.fr/favicon.png",
-    "sameAs": [
-        "https://github.com/mat37dev",
-        "https://www.linkedin.com/in/mathieu-crosnier-b78a16238/"
-    ]
-};
 
 
 export const metadata = {
@@ -47,24 +35,15 @@ export const metadata = {
                 height: 630,
                 alt: "Portfolio de Mathieu Crosnier"
             }
-        ],
-    },
-    icons: {
-        icon: "/favicon.ico",
-        shortcut: "/favicon.ico",
-        apple: "/favicon.png",
+        ]
     },
 };
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
     <head>
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <meta name="apple-mobile-web-app-title" content="Crosnier Mathieu" />
     </head>
     <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-white-100 text-slate-50 font-normal leading-relaxed`}

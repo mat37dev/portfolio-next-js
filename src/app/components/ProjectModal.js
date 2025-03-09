@@ -88,8 +88,12 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                             </ul>
                         </div>
                     </div>
-                    <div className="relative h-64 w-full md:w-1/2 md:h-auto">
-                        <Image src={project.image} alt={project.title} layout="fill" objectFit="contain" loading="lazy"/>
+                    <div className="relative h-64 w-full flex items-center justify-center md:w-1/2 md:h-auto">
+                        <Image
+                            src={project.image}
+                            alt={project.name}
+                            loading="lazy"
+                        />
                     </div>
                     <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-11/12 max-w-4xl">
                         <button onClick={onPrevious} className="bg-gray-800/50 rounded-full p-2 hover:bg-gray-800/70

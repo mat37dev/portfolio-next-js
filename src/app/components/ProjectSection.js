@@ -4,6 +4,14 @@ import ProjectModal from "@/app/components/ProjectModal";
 import {CalendarDays} from "lucide-react";
 import {useState} from "react";
 
+import portfolioImage from "/public/projectImages/portfolio.png"
+import kodokaImage from "/public/projectImages/kodoka.png"
+import geek4FunImage from "/public/projectImages/geek4Fun.png"
+import covoiturageImage from "/public/projectImages/covoiturage.png"
+import gameJamImage from "/public/projectImages/gameJam.png"
+import towerDefenseImage from "/public/projectImages/towerDefense.jpg"
+import plateformerImage from "/public/projectImages/plateformer.png"
+
 const ProjectSection = () => {
     const projects = [
         {
@@ -15,7 +23,7 @@ const ProjectSection = () => {
                 "les différentes compétences que j'ai pu acquérir et de lister tous les projets \"importants\" auxquels " +
                 "j'ai participé. On y retrouve aussi mon cursus scolaire ainsi que mon parcours professionnel.",
             tags: ["Site", "Portfolio", "NextJS", "React", "Tailwind"],
-            image: "/projectImages/portfolio.png",
+            image: portfolioImage,
             techStack: ["NextJS", "React", "Tailwind", "HTML/CSS"],
             date: "27/02/2025",
             github: "https://github.com/mat37dev/portfolio-next-js"
@@ -27,7 +35,7 @@ const ProjectSection = () => {
             fullDescription: "Réalisation d'un CRM pour l'entreprise en HTML/CSS/JavaScript/PHP avec le framework CodeIgniter. " +
                 "Gestion des utilisateurs, des permissions, des devis/factures/avoirs.",
             tags: ["Site", "PHP", "BTS", "CodeIgniter", "Stage"],
-            image: "/projectImages/kodoka.png",
+            image: kodokaImage,
             techStack: ["PHP", "MySQL", "HTML/CSS", "JavaScript", "CodeIgniter"],
             date: "25/04/2023",
             github: "https://github.com/mat37dev/crm-kodoka"
@@ -42,7 +50,7 @@ const ProjectSection = () => {
                 "de manière dynamique des tournois où les utilisateurs peuvent s'inscrire. Le site a été fait en PHP avec une " +
                 "base de données MySQL et le framework CodeIgniter.",
             tags: ["Site", "PHP", "BTS", "CodeIgniter"],
-            image: "/projectImages/geek4Fun.png",
+            image: geek4FunImage,
             techStack: ["PHP", "MySQL", "HTML/CSS", "JavaScript", "CodeIgniter"],
             date: "08/11/2022",
             github: "https://github.com/mat37dev/Geek4Fun"
@@ -56,7 +64,7 @@ const ProjectSection = () => {
                 "un système de profil, un système pour enregistrer/rejoindre un trajet ainsi qu'une barre de recherche pour " +
                 "trouver des covoitureurs correspondant à ses besoins.",
             tags: ["Site", "PHP", "BTS", "Covoiturage"],
-            image: "/projectImages/covoiturage.png",
+            image: covoiturageImage,
             techStack: ["PHP", "MySQL", "HTML/CSS", "JavaScript"],
             date: "05/05/2020",
         },
@@ -68,7 +76,7 @@ const ProjectSection = () => {
                 "Le principe du jeu est de retrouver des morceaux de la ville pour la reconstruire. Règle de la Game Jam : " +
                 "2 jours pour réaliser le jeu sur le thème : \"trouver et construire\".",
             tags: ["Jeux Vidéo", "C#", "Game Jam"],
-            image: "/projectImages/gameJam.png",
+            image: gameJamImage,
             techStack: ["C#", "Unity"],
             date: "05/05/2020",
             download: "https://iphinis.itch.io/find-build"
@@ -82,7 +90,7 @@ const ProjectSection = () => {
                 "défendre un point vital du téléphone contre des virus à l'aide de tourelles. Le jeu a été réalisé en C# et était " +
                 "disponible sur le Play Store.",
             tags: ["Jeux Vidéo", "C#"],
-            image: "/projectImages/towerDefense.jpg",
+            image: towerDefenseImage,
             techStack: ["C#", "Unity", "Mobile"],
             date: "Non définie"
         },
@@ -95,7 +103,7 @@ const ProjectSection = () => {
                 "le niveau. Le jeu comprend un système de vies, des pièces permettant de débloquer des compétences ainsi qu'un " +
                 "petit système de publicité. Le jeu a été réalisé en C# et était disponible sur le Play Store.",
             tags: ["Jeux Vidéo", "C#"],
-            image: "/projectImages/plateformer.webp",
+            image: plateformerImage,
             techStack: ["C#", "Unity", "Mobile"],
             date: "Non définie"
         },

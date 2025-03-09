@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import Head from "next/head";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -45,6 +46,8 @@ export default function RootLayout({ children }) {
     <html lang="fr">
     <head>
         <meta name="apple-mobile-web-app-title" content="Crosnier Mathieu" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+        <link rel="shortcut icon" href="/favicon.ico"/>
     </head>
     <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-white-100 text-slate-50 font-normal leading-relaxed`}

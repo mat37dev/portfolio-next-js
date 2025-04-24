@@ -69,7 +69,7 @@ const HeroSection = () => {
                         <span
                             className="text-gray-300 sm:text-xl border-b-2 border-gray-300 hover:border-primary-600
                             transition-colors duration-300">
-                            Age: 25&nbsp;ans
+                            Age: 22&nbsp;ans
                         </span>
                         <span
                             className="text-gray-300 sm:text-xl border-b-2 border-gray-300 hover:border-primary-600

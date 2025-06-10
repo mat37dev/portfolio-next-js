@@ -11,9 +11,25 @@ import covoiturageImage from "/public/projectImages/covoiturage.png"
 import gameJamImage from "/public/projectImages/gameJam.png"
 import towerDefenseImage from "/public/projectImages/towerDefense.jpg"
 import plateformerImage from "/public/projectImages/plateformer.png"
+import skimateImage from "/public/projectImages/skimate.jpg"
 
 const ProjectSection = () => {
     const projects = [
+        {
+            id: 8,
+            title: "SkiMate",
+            description: "Skimate Votre compagnon pour vos sortis hivernal",
+            fullDescription: "SkiMate, une application mobile conçue pour offrir une expérience enrichie aux amateurs de " +
+                "ski, en leur fournissant des informations essentielles et des outils interactifs pour optimiser leur " +
+                "séjour en montagne dans n’importe quelle station en France. Son objectif principal est de centraliser " +
+                "toutes les données utiles sur les stations de ski, les conditions météorologiques et la cartographie des " +
+                "domaines skiables. L’application permet à l’utilisateur d’accéder en quelques clics aux informations de " +
+                "sa station et d’obtenir un récapitulatif des prévisions météo dès l’écran d’accueil.",
+            tags: ["Application", "Mobile", "Ski", "Android"],
+            image: skimateImage,
+            techStack: ["Symfony", "ReactNative", "React", "Api", "SQL", "NoSQL", "MapBox"],
+            date: "10/06/2025",
+        },
         {
             id: 7,
             title: "Portfolio",

@@ -1,5 +1,12 @@
 "use client";
 import {CalendarDays} from "lucide-react";
+
+const ActiveBadge = () => (
+    <span className="text-xs bg-green-500/20 text-green-400 border border-green-500/30 rounded-full px-2 py-0.5 ml-2 align-middle whitespace-nowrap inline-block">
+        En cours
+    </span>
+);
+
 const TimelineSection = () => {
     return (
         <section id="timeline" className="px-4 py-32 sm:px-6 lg:px-8">
@@ -8,8 +15,25 @@ const TimelineSection = () => {
                 {/* Section Education */}
                 <div>
                     <div className="bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 border border-gray-700/50 shadow-lg">
-                        <h3 className="text-2xl font-bold mb-4 text-primary-600">Education</h3>
+                        <h3 className="text-2xl font-bold mb-4 text-primary-400">Education</h3>
                         <div className="space-y-6">
+                            {/* Master SIN — En cours */}
+                            <div className="relative flex items-start space-x-4">
+                                <div className="absolute left-6 ml-1.5 top-1 w-[5px] h-full bg-primary-600"></div>
+                                <div className="flex-shrink-0 relative z-10">
+                                    <div className="w-4 h-4 bg-green-500 rounded-full ml-2"></div>
+                                </div>
+                                <div className="relative z-10">
+                                    <h3 className="text-sm text-gray-400 flex items-center">
+                                        <CalendarDays className="mr-2" />2025 - 2027
+                                    </h3>
+                                    <h4 className="text-lg font-semibold text-white">
+                                        Master SIN — Systèmes Informatiques et Numériques
+                                        <ActiveBadge />
+                                    </h4>
+                                    <h5 className="text-gray-400">EPSI Nantes</h5>
+                                </div>
+                            </div>
                             <div className="relative flex items-start space-x-4">
                                 <div className="absolute left-6 ml-1.5 top-1 w-[5px] h-full bg-primary-600"></div>
                                 <div className="flex-shrink-0 relative z-10">
@@ -66,9 +90,32 @@ const TimelineSection = () => {
                 {/* Section Expérience */}
                 <div>
                     <div className="bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 border border-gray-700/50 shadow-lg">
-                        <h3 className="text-2xl font-bold mb-4 text-primary-600">Expérience</h3>
+                        <h3 className="text-2xl font-bold mb-4 text-primary-400">Expérience</h3>
                         <div className="space-y-6">
-                            {/* Timeline Item Expérience: ESIMA */}
+                            {/* Cloudity — En cours */}
+                            <div className="relative flex items-start space-x-4">
+                                <div className="absolute left-6 ml-1.5 top-1 w-[5px] h-full bg-primary-600"></div>
+                                <div className="flex-shrink-0 relative z-10">
+                                    <div className="w-4 h-4 bg-green-500 rounded-full ml-2"></div>
+                                </div>
+                                <div className="relative z-10">
+                                    <h3 className="text-sm text-gray-400 flex items-center">
+                                        <CalendarDays className="mr-2" />12/2025 - 08/2027
+                                    </h3>
+                                    <h4 className="text-lg font-semibold text-white">
+                                        Alternance: Cloudity
+                                        <ActiveBadge />
+                                    </h4>
+                                    <p className="text-gray-300 text-sm mt-1">
+                                        Au sein de Cloudity, entreprise spécialisée dans la prestation de services sur
+                                        la plateforme Salesforce, je participe au développement de solutions CRM sur
+                                        mesure pour des clients. Je travaille principalement en Apex, automatise des
+                                        processus métier via Salesforce Flow, et développe des intégrations entre
+                                        Salesforce et des systèmes tiers.
+                                    </p>
+                                </div>
+                            </div>
+                            {/* Esima */}
                             <div className="relative flex items-start space-x-4">
                                 <div className="absolute left-6 ml-1.5 top-1 w-[5px] h-full bg-primary-600"></div>
                                 <div className="flex-shrink-0 relative z-10">
@@ -80,18 +127,18 @@ const TimelineSection = () => {
                                     </h3>
                                     <h4 className="text-lg font-semibold text-white">Alternance: Esima-Armée de l&#39;air et de l&#39;espace</h4>
                                     <p className="text-gray-300 text-sm mt-1">
-                                        Durant mon alternance à l&#39;Esima, j&#39;ai travaillé en équipe sur divers projets 
-                                        tout au long de mon apprentissage. J&#39;y ai acquis de nouvelles méthodes de travail, 
-                                        ainsi que de l&#39;expérience professionnelle et du savoir-faire. Les projets sur 
-                                        lesquels nous avons travaillé m&#39;ont permis de découvrir Symfony et Twig. Les 
-                                        normes de sécurité et le sérieux du travail m&#39;ont ainsi appris à évoluer dans 
+                                        Durant mon alternance à l&#39;Esima, j&#39;ai travaillé en équipe sur divers projets
+                                        tout au long de mon apprentissage. J&#39;y ai acquis de nouvelles méthodes de travail,
+                                        ainsi que de l&#39;expérience professionnelle et du savoir-faire. Les projets sur
+                                        lesquels nous avons travaillé m&#39;ont permis de découvrir Symfony et Twig. Les
+                                        normes de sécurité et le sérieux du travail m&#39;ont ainsi appris à évoluer dans
                                         un cadre précis et réglementé. Par exemple, j&#39;ai pu approfondir mon utilisation
                                         de machines virtuelles hors ligne et me familiariser avec différentes normes de style
                                         imposées, telles que le DSFR.
                                     </p>
                                 </div>
                             </div>
-                            {/* Timeline Item Expérience: Kodoka */}
+                            {/* Kodoka */}
                             <div className="relative flex items-start space-x-4">
                                 <div className="absolute left-6 ml-1.5 top-1 w-[5px] h-full bg-primary-600"></div>
                                 <div className="flex-shrink-0 relative z-10">
@@ -111,7 +158,7 @@ const TimelineSection = () => {
                                     </p>
                                 </div>
                             </div>
-                            {/* Timeline Item Expérience : Kamisys */}
+                            {/* Kamisys */}
                             <div className="relative flex items-start space-x-4">
                                 <div className="absolute left-6 ml-1.5 top-1 w-[5px] h-full bg-primary-600"></div>
                                 <div className="flex-shrink-0 relative z-10">

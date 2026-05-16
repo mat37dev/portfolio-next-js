@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import {X, ChevronLeft, ChevronRight, Github, Download} from "lucide-react";
 import {useEffect, useRef} from "react";
 import Link from "next/link";
@@ -33,7 +33,6 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                     </h2>
                     <div className="flex items-center space-x-4">
                         {project.download && (
-
                             <div className="relative group">
                                 <Link
                                     href={project.download}
@@ -67,8 +66,6 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                                 </div>
                             </div>
                         )}
-
-
                     </div>
                     <button onClick={onClose} className="text-primary-50 hover:text-primary-400 rounded-full p-2
                     bg-gray-800/50  hover:bg-gray-800/70 transition-colors">
@@ -91,8 +88,8 @@ export default function ProjectModal({project, onClose, onNext, onPrevious}) {
                     <div className="relative h-64 w-full flex items-center justify-center md:w-1/2 md:h-auto">
                         <Image
                             src={project.image}
-                            alt={project.name}
-                            loading="lazy"
+                            alt={project.title}
+                            className="rounded-lg object-contain w-full h-auto"
                         />
                     </div>
                     <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-11/12 max-w-4xl">

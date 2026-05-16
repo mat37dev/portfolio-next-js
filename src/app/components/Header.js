@@ -70,6 +70,7 @@ const Navbar = () => {
                                 className="hover:text-slate-200 flex items-center gap-2 md:block"
                                 aria-label="Mon Github"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 onClick={close}
                             >
                                 <Github />
@@ -81,6 +82,7 @@ const Navbar = () => {
                                 href="https://www.linkedin.com/in/mathieu-crosnier-b78a16238/"
                                 className="hover:text-slate-200 flex items-center gap-2 md:block"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="Mon Linkedin"
                                 onClick={close}
                             >

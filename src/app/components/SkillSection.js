@@ -46,6 +46,7 @@ const categories = [
         name: "Mobile",
         skills: [
             { name: "Expo", image: expoImage },
+            { name: "React Native", initials: "RN", color: "#20232A" },
         ],
     },
     {

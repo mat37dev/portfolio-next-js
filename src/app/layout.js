@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import ScrollToTop from "@/app/components/ScrollToTop";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -19,6 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+    metadataBase: new URL("https://mathieucrosnier.fr"),
     title: "Mathieu Crosnier — Développeur Fullstack | Nantes",
     description: "Portfolio de Mathieu Crosnier, développeur fullstack en Master SIN à l'EPSI Nantes, alternant chez Cloudity. Découvrez mes projets et compétences en développement web, Salesforce et applications mobiles.",
     keywords: "Mathieu Crosnier, développeur fullstack Nantes, développeur web Nantes, alternant Salesforce, Master SIN EPSI, Next.js, React, Apex, portfolio développeur fullstack, Cloudity",
@@ -29,20 +31,11 @@ export const metadata = {
         description: "Portfolio de Mathieu Crosnier, développeur fullstack en Master SIN à l'EPSI Nantes, alternant chez Cloudity.",
         url: "https://mathieucrosnier.fr",
         type: "profile",
-        images: [
-            {
-                url: "https://mathieucrosnier.fr/avatar.png",
-                width: 1200,
-                height: 630,
-                alt: "Portfolio de Mathieu Crosnier",
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: "Mathieu Crosnier — Développeur Fullstack | Nantes",
         description: "Portfolio de Mathieu Crosnier, développeur fullstack en Master SIN à l'EPSI Nantes.",
-        images: ["https://mathieucrosnier.fr/avatar.png"],
     },
 };
 
@@ -81,6 +74,7 @@ export default function RootLayout({ children }) {
                 <div className="mt-4 md:mt-14">{children}</div>
                 <Footer />
                 <ScrollToTop />
+                <Analytics />
             </body>
         </html>
     );

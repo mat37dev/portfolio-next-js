@@ -1,7 +1,7 @@
 "use client";
 import {useState} from "react";
-import Image from "next/legacy/image";
-import {redirect} from "next/navigation";
+import Image from "next/image";
+import {Download} from "lucide-react";
 
 const HeroSection = () => {
     const [mousePosition, setMousePosition] = useState({x: 50, y: 50});
@@ -51,14 +51,14 @@ const HeroSection = () => {
                 <div className="flex-1 max-w-md mx-auto md:max-w-none md:mx-0">
                     <h1 className="text-4xl font-bold tracking-light">
                         Bonjour! Je suis Mathieu
-                        <span className="block text-primary-600 text-2xl">
-                            Développeur Concepteur d&#39;Application
+                        <span className="block text-primary-400 text-2xl">
+                            Développeur Fullstack
                         </span>
                     </h1>
                     <p className="mt-4 text-xl text-gray-300 leading-8">
-                        Je me présente, je m&#39;appelle Mathieu Crosnier. Étudiant en alternance pour le titre de
-                        Concepteur Développeur d&#39;Application afin de m’orienter vers les métiers du développement
-                        informatique.
+                        Je me présente, je m&apos;appelle Mathieu Crosnier. Étudiant en Master SIN à l&apos;EPSI
+                        Nantes, en alternance chez Cloudity où je développe des solutions sur la plateforme
+                        Salesforce.
                     </p>
                     <div className="mt-6 flex flex-col sm:flex-row items-center sm:space-x-6">
                         <span
@@ -69,36 +69,42 @@ const HeroSection = () => {
                         <span
                             className="text-gray-300 sm:text-xl border-b-2 border-gray-300 hover:border-primary-600
                             transition-colors duration-300">
-                            Age: 22&nbsp;ans
+                            Age: 23&nbsp;ans
                         </span>
                         <span
                             className="text-gray-300 sm:text-xl border-b-2 border-gray-300 hover:border-primary-600
                             transition-colors duration-300">
-                            Région : Touraine
+                            Région : Nantes
                         </span>
                     </div>
                 </div>
                 {/* Conteneur image */}
-                <div className="relative w-32 h-32 lg:w-64 lg:h-64 mx-auto">
+                <div className="mx-auto">
                     <Image
                         src="/avatar.png"
                         alt="Photo de profil de Mathieu Crosnier"
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded-full"
+                        width={256}
+                        height={256}
+                        className="rounded-full w-32 h-32 lg:w-64 lg:h-64 object-cover"
                         priority
                     />
                 </div>
             </div>
             <div className="flex mt-10 gap-4 relative justify-center items-center md:justify-normal md:items-start z-10">
-                <button
-                    className="px-8 py-3 rounded-lg border border-gray-600 hover:border-primary-500 font-medium bg-slate-900 "
-                    onClick={() => {
-                        redirect("#contact")
-                    }}
+                <a
+                    href="#contact"
+                    className="px-8 py-3 rounded-lg border border-gray-600 hover:border-primary-500 font-medium bg-slate-900"
                 >
                     Contactez Moi!
-                </button>
+                </a>
+                <a
+                    href="/cv.pdf"
+                    download
+                    className="flex items-center gap-2 px-8 py-3 rounded-lg border border-gray-600 hover:border-primary-500 font-medium bg-slate-900"
+                >
+                    <Download size={18} />
+                    Mon CV
+                </a>
             </div>
         </section>
     );

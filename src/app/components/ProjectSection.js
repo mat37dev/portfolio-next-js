@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import ProjectModal from "@/app/components/ProjectModal";
 import {CalendarDays} from "lucide-react";
 import {useState} from "react";
@@ -13,6 +13,16 @@ import towerDefenseImage from "/public/projectImages/towerDefense.jpg"
 import plateformerImage from "/public/projectImages/plateformer.png"
 import skimateImage from "/public/projectImages/skimate.jpg"
 
+const FILTERS = ["Tous", "Web", "Mobile", "Jeux Vidéo"];
+
+const matchesFilter = (project, filter) => {
+    if (filter === "Tous") return true;
+    if (filter === "Web") return project.tags.some(t => ["Site", "Portfolio"].includes(t));
+    if (filter === "Mobile") return project.tags.some(t => ["Mobile", "Application"].includes(t));
+    if (filter === "Jeux Vidéo") return project.tags.includes("Jeux Vidéo");
+    return true;
+};
+
 const ProjectSection = () => {
     const projects = [
         {
@@ -21,10 +31,10 @@ const ProjectSection = () => {
             description: "Skimate Votre compagnon pour vos sortis hivernal",
             fullDescription: "SkiMate, une application mobile conçue pour offrir une expérience enrichie aux amateurs de " +
                 "ski, en leur fournissant des informations essentielles et des outils interactifs pour optimiser leur " +
-                "séjour en montagne dans n’importe quelle station en France. Son objectif principal est de centraliser " +
+                "séjour en montagne dans n'importe quelle station en France. Son objectif principal est de centraliser " +
                 "toutes les données utiles sur les stations de ski, les conditions météorologiques et la cartographie des " +
-                "domaines skiables. L’application permet à l’utilisateur d’accéder en quelques clics aux informations de " +
-                "sa station et d’obtenir un récapitulatif des prévisions météo dès l’écran d’accueil.",
+                "domaines skiables. L'application permet à l'utilisateur d'accéder en quelques clics aux informations de " +
+                "sa station et d'obtenir un récapitulatif des prévisions météo dès l'écran d'accueil.",
             tags: ["Application", "Mobile", "Ski", "Android"],
             image: skimateImage,
             techStack: ["Symfony", "ReactNative", "React", "Api", "SQL", "NoSQL", "MapBox"],
@@ -108,7 +118,7 @@ const ProjectSection = () => {
             tags: ["Jeux Vidéo", "C#"],
             image: towerDefenseImage,
             techStack: ["C#", "Unity", "Mobile"],
-            date: "Non définie"
+            date: "~2020"
         },
         {
             id: 1,
@@ -121,48 +131,66 @@ const ProjectSection = () => {
             tags: ["Jeux Vidéo", "C#"],
             image: plateformerImage,
             techStack: ["C#", "Unity", "Mobile"],
-            date: "Non définie"
+            date: "~2019"
         },
     ];
 
-
     const [selectedProject, setSelectedProject] = useState(null);
+    const [activeFilter, setActiveFilter] = useState("Tous");
 
-    const handleProjectClick = (id) =>{
+    const filteredProjects = projects.filter(p => matchesFilter(p, activeFilter));
+
+    const handleProjectClick = (id) => {
         setSelectedProject(id);
-    }
+    };
 
     const handleClose = () => {
         setSelectedProject(null);
-    }
+    };
 
     const handleNextProject = () => {
         const currentIndex = projects.findIndex(project => project.id === selectedProject);
-
-        if(currentIndex === -1) {
-            return null;
-        }
+        if (currentIndex === -1) return null;
         const nextIndex = (currentIndex + 1) % projects.length;
         setSelectedProject(projects[nextIndex].id);
-    }
+    };
 
     const handlePreviousProject = () => {
         const currentIndex = projects.findIndex(project => project.id === selectedProject);
-
-        if(currentIndex === -1) {
-            return null;
-        }
+        if (currentIndex === -1) return null;
         const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
         setSelectedProject(projects[prevIndex].id);
-    }
+    };
 
     return (
         <section id="projects" className="px-4 py-32 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-white mb-12 text-center">Projets Réalisés</h2>
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">Projets Réalisés</h2>
+
+            {/* Filter buttons */}
+            <div className="flex flex-wrap justify-center gap-2 mb-10">
+                {FILTERS.map((filter) => (
+                    <button
+                        key={filter}
+                        onClick={() => setActiveFilter(filter)}
+                        className={`px-4 py-1.5 rounded-full text-sm border transition-colors duration-200 ${
+                            activeFilter === filter
+                                ? "border-primary-500 bg-primary-500/20 text-primary-200"
+                                : "border-gray-600 text-gray-400 hover:border-primary-500/50 hover:text-gray-200"
+                        }`}
+                    >
+                        {filter}
+                    </button>
+                ))}
+            </div>
+
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                {projects.map((project, index) => (
-                    <button onClick={()=>handleProjectClick(project.id)} key={index} className="relative bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 border
-                    border-gray-700/50 hover:border-primary-500/50 transition-colors hover:shadow-sm text-left">
+                {filteredProjects.map((project, index) => (
+                    <button
+                        onClick={() => handleProjectClick(project.id)}
+                        key={index}
+                        className="relative bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 border
+                        border-gray-700/50 hover:border-primary-500/50 transition-colors hover:shadow-sm text-left"
+                    >
                         <div className="flex flex-col h-full">
                             <h3 className="text-lg font-semibold text-white">{project.title}</h3>
                             <p className="text-xs text-gray-400 flex items-center mb-3">
@@ -178,7 +206,7 @@ const ProjectSection = () => {
                             </div>
                         </div>
                         <div className="absolute top-5 right-3 h-2/3 w-1/3 hidden xl:block">
-                            <Image src={project.image} alt={project.title} layout="fill" objectFit="contain" priority/>
+                            <Image src={project.image} alt={project.title} fill sizes="33vw" style={{ objectFit: "contain" }} priority/>
                         </div>
                     </button>
                 ))}
@@ -191,7 +219,7 @@ const ProjectSection = () => {
                     onPrevious={handlePreviousProject} />
             )}
         </section>
-    )
-}
+    );
+};
 
 export default ProjectSection;

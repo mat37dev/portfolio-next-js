@@ -14,25 +14,40 @@ const ContactSection = () => {
     };
 
     const copyAddress = () => {
-        navigator.clipboard.writeText("Tours 37000").then(r => console.log(r));
+        navigator.clipboard.writeText("Nantes 44000").then(r => console.log(r));
         setAddressCopied(true);
         setTimeout(() => setAddressCopied(false), 2000);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("sending");
+        try {
+            const response = await fetch("https://formspree.io/f/xjkgqzdr", {
+                method: "POST",
+                body: new FormData(e.target),
+                headers: { Accept: "application/json" },
+            });
+            if (response.ok) {
+                setStatus("success");
+                e.target.reset();
+            } else {
+                setStatus("error");
+            }
+        } catch {
+            setStatus("error");
+        }
     };
 
     return (
         <section id="contact" className="py-16 bg-gray-900">
             <div className="grid grid-cols-1 gap-4 xl:grid-cols-4">
                 <div className="container mx-auto px-6 xl:col-span-3">
-                    <h2 className="text-3xl font-bold text-primary-600 mb-8 text-center">
+                    <h2 className="text-3xl font-bold text-primary-400 mb-8 text-center">
                         Me Contacter
                     </h2>
                     <div className="max-w-3xl mx-auto bg-gray-800/30 backdrop-blur-sm rounded-lg p-8 border border-gray-700/50 shadow-lg">
-                        <form
-                            action="https://formspree.io/f/xjkgqzdr"
-                            method="POST"
-                            className="space-y-6"
-                            onSubmit={() => setStatus("success")} // Tu peux adapter selon tes besoins
-                        >
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label
@@ -112,13 +127,19 @@ const ContactSection = () => {
                             <div>
                                 <button
                                     type="submit"
-                                    className="w-full py-3 px-6 rounded-lg bg-primary-600 text-white font-medium hover:bg-primary-500 transition-colors duration-300"
+                                    disabled={status === "sending"}
+                                    className="w-full py-3 px-6 rounded-lg bg-primary-600 text-white font-medium hover:bg-primary-500 transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                                 >
-                                    Envoyer
+                                    {status === "sending" ? "Envoi en cours…" : "Envoyer"}
                                 </button>
                                 {status === "success" && (
                                     <p className="mt-4 text-green-500 text-center">
                                         Message envoyé avec succès !
+                                    </p>
+                                )}
+                                {status === "error" && (
+                                    <p className="mt-4 text-red-400 text-center">
+                                        Une erreur est survenue. Réessayez ou contactez-moi directement par email.
                                     </p>
                                 )}
                             </div>
@@ -150,7 +171,7 @@ const ContactSection = () => {
                             <MapPinHouse />
                         </div>
                         <span className="text-gray-300">
-                            Tours 37000
+                            Nantes 44000
                         </span>
                         {addressCopied && (
                             <div className="absolute top-full left-0 mt-1 px-2 py-1 bg-gray-700 text-white text-xs rounded">
